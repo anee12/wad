@@ -19,7 +19,29 @@ var questions = [{
         "for",
         "none of the above"],
     correctAnswer : 1
-}];
+},
+    {
+        question: "What is the best site ever created?",
+        answers: [
+             "SitePoint",
+            "Simple Steps Code",
+            "Trick questions; they're both the best"
+        ],
+        correctAnswer: "c"
+
+    },
+    {
+        question: "Where is Waldo really?",
+        answers: [
+             "Antarctica",
+             "Exploring the Pacific Ocean",
+              "Sitting in a tree",
+             "Minding his own business, so stop asking"
+        ],
+        correctAnswer: "d"
+    },
+
+];
 
 var currentQuestion = 0;
 var correctAnswers = 0;
@@ -27,11 +49,30 @@ var quizOver = false;
 displayCurrentQuestion();
 document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
-    /*Write your code here */
+    const currentButton = document.getElementById("current");
 }
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide===0){
+        previousButton.style.display = 'none';
+    }
+    else{
+        previousButton.style.display = 'inline-block';
+    }
 
 function displayCurrentQuestion() {
-    /*Write your code here */
+    const currentButton = document.getElementById("next");
+}
+    if(currentSlide===slides.length-1){
+        nextButton.style.display = 'none';
+        submitButton.style.display = 'inline-block';
+    }
+    else{
+        nextButton.style.display = 'inline-block';
+        submitButton.style.display = 'none';
+    }
 }
 
 function resetQuiz() {
